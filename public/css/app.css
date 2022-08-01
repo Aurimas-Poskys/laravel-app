@@ -1,0 +1,37 @@
+html,
+body,
+main {
+    /* height: 100% */
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.btn-secondary {
+    background-color: #e9ecef;
+    color: #000;
+}
+
+.students-table a {
+    text-decoration: underline;
+}
+
+.students-table button {
+    background-color: unset;
+    border: 0;
+    color: #007bff;
+    text-decoration: underline;
+    outline: none;
+}
+
+.groups-table td {
+    height: 42px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.table>:not(caption)>*>* {
+    padding: 0.5rem 0.1rem;
+}
