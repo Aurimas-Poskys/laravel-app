@@ -9,6 +9,37 @@
 
 # Getting started
 
+## About The Project
+
+Super simple application for a teacher to assign students to groups for a project.
+
+## Technical decisions
+
+Since this project is not about design, but more about functionality, custom CSS was avoided. For styling Bootstrap v5 was used.
+
+<hr>
+
+When the database is connected and the application is started teacher should be able to see only homepage in which he can create project. There is a middleware "EnsureProjectIsCreated" added, which checks whether the project is created, and if not, redirects to the homepage.
+
+<hr>
+
+About relations:
+
+Project has "One To Many" relationship with Groups;
+Groups has "One To Many" relationship with Students;
+
+<hr>
+
+When creating a new student, the full name entered must meet the following requirements:
+- Atleast 6 letters;
+- Not more then 30 letters;
+- Has to be unique;
+- At least two words.
+
+<hr>
+
+When assigning student to group, jquery event "on change" is used, and when it is triggered ajax request is executed.
+
 ## Installation
 
 Please check the official laravel installation guide for server requirements before you start. [Official Documentation](https://laravel.com/docs/5.4/installation#installation)
@@ -61,10 +92,6 @@ You can now access the server at http://localhost:8000
 
 
 # Testing functionality
-
-Server requirements
-
-    PHP extensions: php_pdo_sqlite, sqlite3
 
 Run automated tests
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use App\Models\Student;
+use App\Rules\MultipleWords;
 use Illuminate\Http\Request;
 
 class ProjectsController extends Controller
@@ -11,7 +12,6 @@ class ProjectsController extends Controller
     
     public function index() 
     {
-
         $project = Project::get()->last();
         
         $students = Student::all();
