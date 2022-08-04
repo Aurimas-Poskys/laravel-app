@@ -14,37 +14,41 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" type="text/css">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
+    @stack('meta')
+    
 </head>
 <body>
 
 
     <div class="modal-header">
+       
         <div class="title-left">
-            {{--            <a class="heading" href="{{ route('welcome') }}">RentaCar</a>--}}
     
-            <div class="heading"><a href="{{ route('welcome') }}" style="color: white">Automobilių nuoma</a></div>
     
         </div>
+
         <div class="title-right">
     
-    
-    
-    
-            <a href="{{ route('welcome') }}" class="mr-3">Home</a>
-            <a href="{{ route('project') }}" class="mr-3">Project</a>
-    
-            
-    
+            <a href="{{ route('homepage') }}" class="link-success me-3">Home</a>
+
+            @if($project = \App\Models\Project::query()->get()->last())
+
+            <a href="{{ route('project_view') }}" class="link-success">Project</a>
+
+            @endif
+
         </div>
+
     </div>
 
 
-<main class="">
-    @yield('content')
-</main>
+    <main class="">
+        @yield('content')
+    </main>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="{{asset('js/index.js')}}" type="text/javascript"></script>
+
 </body>
 </html>

@@ -20,10 +20,6 @@ class ProjectsController extends Controller
         return (isset($project)) ? view('projects.index', ['project' => $project, 'students' => $students]) : redirect()->route('welcome');
     }
 
-    public function create()
-    {
-        return view('projects.create');
-    }
 
 
     public function store(Request $request)
@@ -53,29 +49,10 @@ class ProjectsController extends Controller
         }
 
 
-        return redirect()->route('project');
+        return redirect()->route('project_view');
     }
 
 
-    public function edit(Project $project) 
-    {
-
-        return view('projects.edit', ['project' => $project]);
-    }
-
-    public function update(Project $project) 
-    {
-     
-        request()->validate([
-            'title' => 'required',
-        ]);
-        
-        $project->update([
-            'title' => request('title'),
-        ]);
-
-        return redirect('/project');
-    }
 
     public function destroy(Project $project)
     {
